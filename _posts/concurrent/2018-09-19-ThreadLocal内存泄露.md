@@ -21,7 +21,7 @@ ThreadLocal主要的是用于独享自己的变量，避免一些资源的争夺
 
 [ThreadLocal可能引起的内存泄露](http://www.cnblogs.com/onlywujun/p/3524675.html)
 
-![image](https://jasperxgwang.github.io/images/concurrent/ThreadLocal.png)
+![image](https://jasperbalcony.github.io/images/concurrent/ThreadLocal.png)
 
 
 所以简单的说，主要原因就是在于TreadLocal中用到的自己定义的Map(和常用的Map接口不同)中，使用的Key值是一个`WeakReference`类型的值（弱引用会在下一次GC时马上释放而不管是否被引用）。那么如果这个Key在GC时被释放了，就会导致Value永远都不会被调用到，但是如果线程不结束，又一直存在。

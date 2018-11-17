@@ -145,18 +145,18 @@ Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
 ```
 运行结果
 
-![image](https://jasperxgwang.github.io/images/spark/JavaWordCount.png)
+![image](https://jasperbalcony.github.io/images/spark/JavaWordCount.png)
 
 运行结果
 
-![image](https://jasperxgwang.github.io/images/spark/JavaWordCountResult.png)
+![image](https://jasperbalcony.github.io/images/spark/JavaWordCountResult.png)
 
 ## IDEA local
 
 设置IDEA运行项的Configuration中的VM opthion 增加`-Dspark.master=local`
 
-![image](https://jasperxgwang.github.io/images/spark/idea_local.png)
+![image](https://jasperbalcony.github.io/images/spark/idea_local.png)
 
 运行结果
 
-![image](https://jasperxgwang.github.io/images/spark/idea_local_result.png)
+![image](https://jasperbalcony.github.io/images/spark/idea_local_result.png)

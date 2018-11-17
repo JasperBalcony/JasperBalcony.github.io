@@ -191,7 +191,7 @@ unzip elasticsearch-analysis-ik-6.2.2.zip -d /data/elasticsearch/plugin
 ```
 ## 启动es
 
-![image](https://jasperxgwang.github.io/images/elasticsearch/es-ik.png)
+![image](https://jasperbalcony.github.io/images/elasticsearch/es-ik.png)
 
 ## 验证
 
@@ -247,7 +247,7 @@ unzip elasticsearch-analysis-ik-6.2.2.zip -d /data/elasticsearch/plugin
 
 ```
 或者直接借助kibana验证
-![image](https://jasperxgwang.github.io/images/elasticsearch/ik-result.jpg)
+![image](https://jasperbalcony.github.io/images/elasticsearch/ik-result.jpg)
 
 ## 配置自定义分词
 
@@ -280,7 +280,7 @@ unzip elasticsearch-analysis-ik-6.2.2.zip -d /data/elasticsearch/plugin
 ```
 ### 验证
 
-![image](https://jasperxgwang.github.io/images/elasticsearch/ik-consume.jpg)
+![image](https://jasperbalcony.github.io/images/elasticsearch/ik-consume.jpg)
 
 # 安装elasticsearch-head
 
@@ -315,7 +315,7 @@ https://github.com/mobz/elasticsearch-head
 
 这里写图片描述
 
-![image](https://jasperxgwang.github.io/images/elasticsearch/Node.js.png)
+![image](https://jasperbalcony.github.io/images/elasticsearch/Node.js.png)
 
 ### 解压
 ```
@@ -371,7 +371,7 @@ Started connect web server on https://localhost:9100
 ```
 [查看](http://10.131.44.254:9100/)
 
-![image](https://jasperxgwang.github.io/images/elasticsearch/es-head.jpg)
+![image](https://jasperbalcony.github.io/images/elasticsearch/es-head.jpg)
 
 
 # 安装kibana
@@ -407,4 +407,4 @@ server.host: "10.131.44.254"                # kibana运行在哪台机器
  ```
   查看界面 http://10.131.44.254:5601/ 可以直接访问
   
-  ![image](https://jasperxgwang.github.io/images/elasticsearch/kibana.jpg)
+  ![image](https://jasperbalcony.github.io/images/elasticsearch/kibana.jpg)

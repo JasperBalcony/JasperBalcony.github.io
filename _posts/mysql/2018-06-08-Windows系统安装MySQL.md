@@ -114,7 +114,7 @@ Query OK, 0 rows affected (0.15 sec)
 ```
 Navicat连接
 
-![image](https://jasperxgwang.github.io/images/mysql/navicat.jpg)
+![image](https://jasperbalcony.github.io/images/mysql/navicat.jpg)
 
 
 

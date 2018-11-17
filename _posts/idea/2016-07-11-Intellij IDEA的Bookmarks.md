@@ -11,13 +11,13 @@ category: IDEA
 
 `F11`在代码上面加入标签，如下图所示
 
-![image](https://jasperxgwang.github.io/images/Intellij/tag.jpg)
+![image](https://jasperbalcony.github.io/images/Intellij/tag.jpg)
 
 `Shift+F11`就可以直接看到标签附近的代码
 
-![image](https://jasperxgwang.github.io/images/Intellij/view-tag.jpg)
+![image](https://jasperbalcony.github.io/images/Intellij/view-tag.jpg)
 
 
 可以使用以（助记符）数字作为书签，在所在行按快捷键`Ctrl+Shift+任意数字`，就可以插入一个标签了，要将光标跳转到某个书签，只需要Ctrl+对应的标签数字。
 
-![image](https://jasperxgwang.github.io/images/Intellij/view-tag.jpg)
+![image](https://jasperbalcony.github.io/images/Intellij/view-tag.jpg)
