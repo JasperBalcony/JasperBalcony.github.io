@@ -168,7 +168,7 @@ this is data content
 
 java中获取此请求参数方式：
 ```java
-    public static String getBodyString(ServletRequest request) {
+ public static String getBodyString(ServletRequest request) {
         StringBuilder sb = new StringBuilder();
         InputStream inputStream = null;
         BufferedReader reader = null;
@@ -180,10 +180,22 @@ java中获取此请求参数方式：
                 sb.append(line);
             }
         } catch (IOException e) {
-            logger.error("getBodyString error", e.getMessage());
+            logger.warn("getBodyString error", e.getMessage());
         } finally {
-            IOUtils.close(inputStream);
-            IOUtils.close(reader);
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return sb.toString();
     }
