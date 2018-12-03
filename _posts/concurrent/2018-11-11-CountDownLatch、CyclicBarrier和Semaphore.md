@@ -19,7 +19,7 @@ public CountDownLatch(int count) {  };  //参数count为计数值
 然后下面这3个方法是CountDownLatch类中最重要的方法：
 
 
-```
+```java
 public void await() throws InterruptedException { };   //调用await()方法的线程会被挂起，它会等待直到count值为0才继续执行
 public boolean await(long timeout, TimeUnit unit) throws InterruptedException { };  //和await()类似，只不过等待一定的时间后count值还没变为0的话就会继续执行
 public void countDown() { };  //将count值减1
@@ -27,7 +27,7 @@ public void countDown() { };  //将count值减1
 
 下面看一个例子大家就清楚CountDownLatch的用法了：
 
-```
+```java
 public class Test {
      public static void main(String[] args) {   
          final CountDownLatch latch = new CountDownLatch(2);
@@ -86,7 +86,7 @@ public class Test {
 CyclicBarrier类位于java.util.concurrent包下，CyclicBarrier提供2个构造器：
 
 
-```
+```java
 public CyclicBarrier(int parties, Runnable barrierAction) {
 }
  
@@ -98,7 +98,7 @@ public CyclicBarrier(int parties) {
 然后CyclicBarrier中最重要的方法就是await方法，它有2个重载版本：
 
 
-```
+```java
 public int await() throws InterruptedException, BrokenBarrierException { };
 public int await(long timeout, TimeUnit unit)throws InterruptedException,BrokenBarrierException,TimeoutException { };
 ```
@@ -111,7 +111,7 @@ public int await(long timeout, TimeUnit unit)throws InterruptedException,BrokenB
 假若有若干个线程都要进行写数据操作，并且只有所有线程都完成写数据操作之后，这些线程才能继续做后面的事情，此时就可以利用CyclicBarrier了：
 
 
-```
+```java
 public class Test {
     public static void main(String[] args) {
         int N = 4;
@@ -165,7 +165,7 @@ public class Test {
 如果说想在所有线程写入操作完之后，进行额外的其他操作可以为CyclicBarrier提供Runnable参数：
 
 
-```
+```java
 public class Test {
     public static void main(String[] args) {
         int N = 4;
@@ -224,7 +224,7 @@ public class Test {
 下面看一下为await指定时间的效果：
 
 
-```
+```java
 public class Test {
     public static void main(String[] args) {
         int N = 4;
@@ -307,7 +307,7 @@ Thread-3所有线程写入完毕，继续处理其他任务...
 
 另外CyclicBarrier是可以重用的，看下面这个例子：
 
-```
+```java
 public class Test {
     public static void main(String[] args) {
         int N = 4;
@@ -389,7 +389,7 @@ Semaphore翻译成字面意思为 信号量，Semaphore可以控同时访问的�
 
 Semaphore类位于java.util.concurrent包下，它提供了2个构造器：
 
-```
+```java
 public Semaphore(int permits) {          //参数permits表示许可数目，即同时可以允许多少线程进行访问
     sync = new NonfairSync(permits);
 }
@@ -399,7 +399,7 @@ public Semaphore(int permits, boolean fair) {    //这个多了一个参数fair�
 ```
 下面说一下Semaphore类中比较重要的几个方法，首先是acquire()、release()方法：
 
-```
+```java
 public void acquire() throws InterruptedException {  }     //获取一个许可
 public void acquire(int permits) throws InterruptedException { }    //获取permits个许可
 public void release() { }          //释放一个许可
@@ -412,7 +412,7 @@ release()用来释放许可。注意，在释放许可之前，必须先获获�
 这4个方法都会被阻塞，如果想立即得到执行结果，可以使用下面几个方法：
 
 
-```
+```java
 public boolean tryAcquire() { };    //尝试获取一个许可，若获取成功，则立即返回true，若获取失败，则立即返回false
 public boolean tryAcquire(long timeout, TimeUnit unit) throws InterruptedException { };  //尝试获取一个许可，若在指定的时间内获取成功，则立即返回true，否则则立即返回false
 public boolean tryAcquire(int permits) { }; //尝试获取permits个许可，若获取成功，则立即返回true，若获取失败，则立即返回false
@@ -425,7 +425,7 @@ public boolean tryAcquire(int permits, long timeout, TimeUnit unit) throws Inter
 假若一个工厂有5台机器，但是有8个工人，一台机器同时只能被一个工人使用，只有使用完了，其他工人才能继续使用。那么我们就可以通过Semaphore来实现：
 
 
-```
+```java
 public class Test {
     public static void main(String[] args) {
         int N = 8;            //工人数
