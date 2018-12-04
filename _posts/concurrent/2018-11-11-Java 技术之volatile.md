@@ -60,3 +60,5 @@ lock前缀指令实际上相当于一个内存屏障（也成内存栅栏），�
 - 如果是写操作，它会导致其他CPU中对应的缓存行无效。
 
 转自 [Java 技术之volatile](https://www.jianshu.com/p/14fc9d34de33)
+
+其他 [大白话聊聊Java并发面试问题之volatile到底是什么？](https://www.toutiao.com/a6630759706203783684/?tt_from=weixin&utm_campaign=client_share&wxshare_count=1&timestamp=1543884027&app=news_article_lite&utm_source=weixin&iid=52867771468&utm_medium=toutiao_ios&group_id=6630759706203783684)
