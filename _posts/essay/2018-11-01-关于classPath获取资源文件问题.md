@@ -233,7 +233,21 @@ public File getResourceFile(String filename) {
 
 另外还有一位小伙伴的分享也是不错的,故此处记录一下[关于getSystemResource, getResource 的总结](https://www.cnblogs.com/drwong/p/5389631.html)
 
+# 相关
 
+获取依赖lib中获的resource资源
+
+文件`algo/iforest_model.pmml`存在于service模块的resource目录
+```
+String defalutModelPath = "algo/iforest_model.pmml";
+inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(defalutModelPath);
+logger.info("load model from default{}", Thread.currentThread().getContextClassLoader().getResource(defalutModelPath).getPath());
+```
+
+jetty容器运行结果
+```
+load model from defaultfile:/data/jetty/work/jetty-0.0.0.0-8080-mAegis-captcha-admin-1.0.0-RC01-SNAPSHOT.war-_mAegis-captcha-admin-1.0.0-RC01-SNAPSHOT-any-/webapp/WEB-INF/lib/mAegis-captcha-service-1.0.0-RC01-SNAPSHOT.jar!/algo/iforest_model.pmml
+```
 
 
 
