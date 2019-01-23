@@ -2,7 +2,7 @@
 layout: post
 title: "VMware NAT方式创建虚拟机网络并配置固定IP"
 description: VMware NAT方式创建虚拟机网络并配置固定IP
-category: 个人随笔
+category: Linux
 ---
 
 # 环境
