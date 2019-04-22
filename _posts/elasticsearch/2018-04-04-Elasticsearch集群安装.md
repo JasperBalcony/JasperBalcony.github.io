@@ -138,7 +138,7 @@ es hard memlock unlimited
 * soft nproc unlimited
 vim /etc/security/limits.d/90-nproc.conf
 *          soft    nproc     unlimited
-root       soft    nproc     unlimited
+es       soft    nproc     unlimited
 ```
 
 三台机器都修改配置 Linux下/etc/sysctl.conf文件设置
