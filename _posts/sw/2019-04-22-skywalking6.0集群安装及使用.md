@@ -11,9 +11,9 @@ category: skywalking
 
 IP|zk|es|sw
 ---|---|---|---
-10.21.12.64|zookeeper|node-64|OAPServer、skywalking-webapp
-10.21.12.65|zookeeper|node-65|OAPServer
-10.21.12.66|zookeeper|node-66|
+xx.xx.xx.64|zookeeper|node-64|OAPServer、skywalking-webapp
+xx.xx.xx.65|zookeeper|node-65|OAPServer
+xx.xx.xx.66|zookeeper|node-66|
 
 
 ## 安装ZooKeeper
@@ -38,9 +38,9 @@ mv zoo_sample.cfg zoo.cfg
 # 修改配置文件（zoo.cfg）
 dataDir=/data/zookeeper-3.4.6/data
 
-server.1=10.21.12.64:2888:3888
-server.2=10.21.12.65:2888:3888
-server.3=10.21.12.66:2888:3888
+server.1=xx.xx.xx.64:2888:3888
+server.2=xx.xx.xx.65:2888:3888
+server.3=xx.xx.xx.66:2888:3888
 
 # 在（dataDir=/data/zookeeper/data）创建一个myid文件，里面内容是server.N中的N（server.2里面内容为2）
 echo "1" > myid
@@ -48,8 +48,8 @@ echo "1" > myid
 # 将配置好的zk拷贝到其他节点
 
 # 注意：在其他节点上一定要修改myid的内容
-在10.21.12.65应该讲myid的内容改为2 （echo "2" > /data/zookeeper/data/myid）
-在10.21.12.66应该讲myid的内容改为3 （echo "3" > /data/zookeeper/data/myid）
+在xx.xx.xx.65应该讲myid的内容改为2 （echo "2" > /data/zookeeper/data/myid）
+在xx.xx.xx.66应该讲myid的内容改为3 （echo "3" > /data/zookeeper/data/myid）
 ```
 	
 ### 启动集群
@@ -160,7 +160,7 @@ path.logs: /data/elasticsearch/logs/
 http.port: 9200
 
 # 集群发现 集群节点ip或者主机
-discovery.zen.ping.unicast.hosts: ["10.21.12.64", "10.21.12.65" ,"10.21.12.66"]
+discovery.zen.ping.unicast.hosts: ["xx.xx.xx.64", "xx.xx.xx.65" ,"xx.xx.xx.66"]
 
 #设置这个参数来保证集群中的节点可以知道其它N个有master资格的节点。默认为1，对于大的集群来说，可以设置大一点的值（2-4）
 discovery.zen.minimum_master_nodes: 2
@@ -222,7 +222,7 @@ vm.swappiness = 1
 
 ### 结果
 
-- http://10.21.12.64:9200/
+- http://xx.xx.xx.64:9200/
 
 ```
 {
@@ -243,38 +243,38 @@ vm.swappiness = 1
     "tagline": "You Know, for Search"
 }
 ```
-- http://10.21.12.64:9200/_cat/nodes?v
+- http://xx.xx.xx.64:9200/_cat/nodes?v
 
 ```
 ip          heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
-10.21.12.66           34          21   3    0.96    1.01     1.04 mdi       -      node-66
-10.21.12.65           36          98   0    0.87    0.63     0.42 mdi       -      node-65
-10.21.12.64           39          45   0    0.14    0.13     0.14 mdi       *      node-64
+xx.xx.xx.66           34          21   3    0.96    1.01     1.04 mdi       -      node-66
+xx.xx.xx.65           36          98   0    0.87    0.63     0.42 mdi       -      node-65
+xx.xx.xx.64           39          45   0    0.14    0.13     0.14 mdi       *      node-64
 ```
 
-- http://10.21.12.64:9200/_cat/shards?v
+- http://xx.xx.xx.64:9200/_cat/shards?v
 
 ```
 index                                      shard prirep state   docs   store ip          node
-sw_instance_jvm_memory_heap_max_month      1     p      STARTED    1   4.1kb 10.21.12.65 node-65
-sw_instance_jvm_memory_heap_max_month      0     p      STARTED    2     8kb 10.21.12.66 node-66
-sw_endpoint_relation_cpm                   1     p      STARTED    0    261b 10.21.12.66 node-66
-sw_endpoint_relation_cpm                   0     p      STARTED    0    261b 10.21.12.64 node-64
-sw_instance_jvm_old_gc_time_hour           1     p      STARTED    3  12.1kb 10.21.12.66 node-66
-sw_instance_jvm_old_gc_time_hour           0     p      STARTED    3  11.8kb 10.21.12.64 node-64
-sw_service_p90_month                       1     p      STARTED    0    261b 10.21.12.65 node-65
-sw_service_p90_month                       0     p      STARTED    0    261b 10.21.12.66 node-66
-sw_service_instance_sla_month              1     p      STARTED    0    261b 10.21.12.65 node-65
-sw_service_instance_sla_month              0     p      STARTED    0    261b 10.21.12.66 node-66
-sw_service_p90                             1     p      STARTED    0    261b 10.21.12.65 node-65
-sw_service_p90                             0     p      STARTED    0    261b 10.21.12.66 node-66
-sw_endpoint_p95_month                      1     p      STARTED    0    261b 10.21.12.65 node-65
-sw_endpoint_p95_month                      0     p      STARTED    0    261b 10.21.12.66 node-66
-sw_endpoint_cpm_month                      1     p      STARTED    0    261b 10.21.12.65 node-65
-sw_endpoint_cpm_month                      0     p      STARTED    0    261b 10.21.12.66 node-66
-sw_service_instance_cpm                    1     p      STARTED    0    261b 10.21.12.64 node-64
-sw_service_instance_cpm                    0     p      STARTED    0    261b 10.21.12.65 node-65
-sw_service_p95                             1     p      STARTED    0    261b 10.21.12.66 node-66
+sw_instance_jvm_memory_heap_max_month      1     p      STARTED    1   4.1kb xx.xx.xx.65 node-65
+sw_instance_jvm_memory_heap_max_month      0     p      STARTED    2     8kb xx.xx.xx.66 node-66
+sw_endpoint_relation_cpm                   1     p      STARTED    0    261b xx.xx.xx.66 node-66
+sw_endpoint_relation_cpm                   0     p      STARTED    0    261b xx.xx.xx.64 node-64
+sw_instance_jvm_old_gc_time_hour           1     p      STARTED    3  12.1kb xx.xx.xx.66 node-66
+sw_instance_jvm_old_gc_time_hour           0     p      STARTED    3  11.8kb xx.xx.xx.64 node-64
+sw_service_p90_month                       1     p      STARTED    0    261b xx.xx.xx.65 node-65
+sw_service_p90_month                       0     p      STARTED    0    261b xx.xx.xx.66 node-66
+sw_service_instance_sla_month              1     p      STARTED    0    261b xx.xx.xx.65 node-65
+sw_service_instance_sla_month              0     p      STARTED    0    261b xx.xx.xx.66 node-66
+sw_service_p90                             1     p      STARTED    0    261b xx.xx.xx.65 node-65
+sw_service_p90                             0     p      STARTED    0    261b xx.xx.xx.66 node-66
+sw_endpoint_p95_month                      1     p      STARTED    0    261b xx.xx.xx.65 node-65
+sw_endpoint_p95_month                      0     p      STARTED    0    261b xx.xx.xx.66 node-66
+sw_endpoint_cpm_month                      1     p      STARTED    0    261b xx.xx.xx.65 node-65
+sw_endpoint_cpm_month                      0     p      STARTED    0    261b xx.xx.xx.66 node-66
+sw_service_instance_cpm                    1     p      STARTED    0    261b xx.xx.xx.64 node-64
+sw_service_instance_cpm                    0     p      STARTED    0    261b xx.xx.xx.65 node-65
+sw_service_p95                             1     p      STARTED    0    261b xx.xx.xx.66 node-66
 ```
 
 ## 安装skywalking
@@ -301,14 +301,14 @@ tar -zxvf /data/software/apache-skywalking-apm-incubating-6.0.0-GA.tar.gz -C /da
 ## 启动
 
 ```
-# 10.21.12.64 启动OAPServer、skywalking-webapp进程
+# xx.xx.xx.64 启动OAPServer、skywalking-webapp进程
 /data/skywalking/bin/startup.sh
-# 10.21.12.65 启动OAPServer进程
+# xx.xx.xx.65 启动OAPServer进程
 /data/skywalking/bin/oapService.sh
 ```
 ## 查看
 
-http://10.21.12.64:8080   admin/admin
+http://xx.xx.xx.64:8080   admin/admin
 
 # 接入
 
@@ -323,7 +323,7 @@ cp -r /data/skywalking/agent/ /data/sky_agent/
 
 ```
 agent.service_name=${SW_AGENT_NAME:predictor-serving}
-collector.backend_service=${SW_AGENT_COLLECTOR_BACKEND_SERVICES:10.21.12.64:11800,10.21.12.65:11800}
+collector.backend_service=${SW_AGENT_COLLECTOR_BACKEND_SERVICES:xx.xx.xx.64:11800,xx.xx.xx.65:11800}
 ```
 ### 采样配置
 
