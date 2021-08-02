@@ -104,6 +104,9 @@ permalink: /links/
 
 [CSRF漏洞的原理](https://www.zhuyingda.com/blog/b5.html)
 
+## MAC
+[Mac OS 终端强化美化：iterm2 + zsh + oh~my~zsh 设置教程](https://www.cnblogs.com/toulanboy/p/9609365.html)
+
 ## 区块链
 
 [拜占庭问题与算法](https://yeasy.gitbooks.io/blockchain_guide/content/distribute_system/bft.html)
